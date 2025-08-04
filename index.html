@@ -25,9 +25,9 @@
                 <div class="nav">
                     <i class="fa-solid fa-bars toggle-menu"></i>
                     <ul>
-                        <li><a class="active" href="#Home">Home</a></li>
+                        <li><a class="active home" href="#Home">Home</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#protofleo">Protoflio</a></li>
+                        <li><a href="#protoflio">Protoflio</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#price">Pricing</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -40,26 +40,43 @@
         </div>
     <!-- end header -->
     <!-- start Landing -->
-        <div class="landing">
-            <div class="overlay"></div>
-            <div class="text">
-                <div class="content">
-                    <h2>Hello World!<br/>
-                        We Are Kasper We Make Art.</h2>
-                    <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur aliquet quam. Accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>
-                </div>
-            </div>
-            <i class="fas fa-angle-left change-background fa-2x"></i>
-            <i class="fas fa-angle-right change-background fa-2x"></i>
-            <ul class="bullets">
-                <li></li>
-                <li class="active"></li>
-                <li></li>
-            </ul>
+<div class="landing">
+    <div class="overlay"></div>
+
+    <div class="text active">
+        <div class="content">
+            <h2>Slide 1<br /> We Are Kasper We Make Art.</h2>
+            <p>Slide 1 text: Accumsan id imperdiet et, porttitor at sem.</p>
         </div>
+    </div>
+
+    <div class="text">
+        <div class="content">
+            <h2>Slide 2<br /> Creative Design Experts.</h2>
+            <p>Slide 2 text: Mauris blandit aliquet elit, eget tincidunt nibh pulvinar.</p>
+        </div>
+    </div>
+
+    <div class="text">
+        <div class="content">
+            <h2>Slide 3<br /> Build With Passion.</h2>
+            <p>Slide 3 text: Curabitur arcu erat, accumsan id imperdiet et.</p>
+        </div>
+    </div>
+
+    <i class="fas fa-angle-left change-background fa-2x"></i>
+    <i class="fas fa-angle-right change-background fa-2x"></i>
+
+    <ul class="bullets">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
     <!-- end Landing -->
      <!-- Start Services -->
-     <div class="services">
+     <div class="services" id="services">
         <div class="container">
             <div class="main-heading">
                 <h2>Services</h2>
@@ -126,79 +143,115 @@
         </div>
      </div>
     <!-- end design -->
-     <div class="protoflio">
-        <div class="container">
-            <div class="main-heading">
-                <h2>POTOFLIO</h2>
-                <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>
-            </div>
-            <ul>
-                <li class="active">All</li>
-                <li>App</li>
-                <li>Photo</li>
-                <li>Web</li>
-                <li>Print</li>
-            </ul>
+<div class="protoflio" id="protoflio">
+    <div class="container">
+        <div class="main-heading">
+            <h2>PORTFOLIO</h2>
+            <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.</p>
         </div>
-        <div class="images-box">
-            <div class="box">
-                <img src="images/shuffle-01.jpg" alt="">
-                <div class="text">
-                    <h4>Awesome Image</h4>
-                    <p>Photography</p>
-                </div>
+        <ul>
+            <li class="active i-all">All</li>
+            <li class="i-app">App</li>
+            <li class="i-photo">Photo</li>
+            <li class="i-web">Web</li>
+            <li class="i-print">Print</li>
+        </ul>
+    </div>
+
+    <div class="images-box">
+        <!-- الصور الأساسية -->
+        <div class="box app">
+            <img src="images/shuffle-01.jpg" alt="">
+            <div class="text">
+                <h4>Awesome App</h4>
+                <p>App</p>
             </div>
-            <div class="box">
-                <img src="images/shuffle-02.jpg" alt="">
-                <div class="text">
-                    <h4>Awesome Image</h4>
-                    <p>Photography</p>
-                </div>
+        </div>
+        <div class="box photo">
+            <img src="images/shuffle-02.jpg" alt="">
+            <div class="text">
+                <h4>Awesome Photo</h4>
+                <p>Photo</p>
             </div>
-            <div class="box">
-                <img src="images/shuffle-03.jpg" alt="">
-                <div class="text">
-                    <h4>Awesome Image</h4>
-                    <p>Photography</p>
-                </div>
+        </div>
+        <div class="box web">
+            <img src="images/shuffle-03.jpg" alt="">
+            <div class="text">
+                <h4>Awesome Web</h4>
+                <p>Web</p>
             </div>
-            <div class="box">
-                <img src="images/shuffle-04.jpg" alt="">
-                <div class="text">
-                    <h4>Awesome Image</h4>
-                    <p>Photography</p>
-                </div>
+        </div>
+        <div class="box print">
+            <img src="images/shuffle-04.jpg" alt="">
+            <div class="text">
+                <h4>Awesome Print</h4>
+                <p>Print</p>
             </div>
-            <div class="box">
-                <img src="images/shuffle-05.jpg" alt="">
-                <div class="text">
-                    <h4>Awesome Image</h4>
-                    <p>Photography</p>
-                </div>
+        </div>
+        <div class="box photo">
+            <img src="images/shuffle-05.jpg" alt="">
+            <div class="text">
+                <h4>Awesome Photo</h4>
+                <p>Photo</p>
             </div>
-            <div class="box">
-                <img src="images/shuffle-06.jpg" alt="">
-                <div class="text">
-                    <h4>Awesome Image</h4>
-                    <p>Photography</p>
-                </div>
+        </div>
+        <div class="box app">
+            <img src="images/shuffle-06.jpg" alt="">
+            <div class="text">
+                <h4>Awesome App</h4>
+                <p>App</p>
             </div>
-            <div class="box">
-                <img src="images/shuffle-07.jpg" alt="">
-                <div class="text">
-                    <h4>Awesome Image</h4>
-                    <p>Photography</p>
-                </div>
+        </div>
+        <div class="box web">
+            <img src="images/shuffle-07.jpg" alt="">
+            <div class="text">
+                <h4>Awesome Web</h4>
+                <p>Web</p>
             </div>
-            <div class="box">
-                <img src="images/shuffle-08.jpg" alt="">
-                <div class="text">
-                    <h4>Awesome Image</h4>
-                    <p>Photography</p>
-                </div>
+        </div>
+        <div class="box print">
+            <img src="images/shuffle-08.jpg" alt="">
+            <div class="text">
+                <h4>Awesome Print</h4>
+                <p>Print</p>
             </div>
-            <a href="#">More</a>
+        </div>
+
+        <!-- الصور الإضافية -->
+        <div class="box app add d-none">
+            <img src="images/shuffle-01.jpg" alt="">
+            <div class="text">
+                <h4>Extra App</h4>
+                <p>App</p>
             </div>
+        </div>
+        <div class="box web add d-none">
+            <img src="images/shuffle-02.jpg" alt="">
+            <div class="text">
+                <h4>Extra Web</h4>
+                <p>Web</p>
+            </div>
+        </div>
+        <div class="box photo add d-none">
+            <img src="images/shuffle-03.jpg" alt="">
+            <div class="text">
+                <h4>Extra Photo</h4>
+                <p>Photo</p>
+            </div>
+        </div>
+        <div class="box print add d-none">
+            <img src="images/shuffle-04.jpg" alt="">
+            <div class="text">
+                <h4>Extra Print</h4>
+                <p>Print</p>
+            </div>
+        </div>
+
+        <!-- زر المزيد -->
+        <a href="#" class="btn" id="btn">More</a>
+    </div>
+</div>
+
         </div>
      </div>
      <!-- end protoflio -->
@@ -213,7 +266,7 @@
       </div>
 <!-- end video -->
 <!-- start about -->
- <div class="about">
+ <div class="about" id="about">
     <div class="container">
         <div class="main-heading">
             <h2>About Us</h2>
@@ -273,6 +326,13 @@
                             <p>John Doe, CEO</p>
                         </div>
                     </div>
+                    <div class="customer">
+                        <img src="images/skills-01.jpg" alt="">
+                        <div class="text">
+                            Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.
+                            <p>John Doe, CEO</p>
+                        </div>
+                    </div>
                     <ul class="bullets">
                         <li></li>
                         <li class="active"></li>
@@ -325,7 +385,7 @@
    </div>
    <!-- end q -->
     <!-- start price -->
-     <div class="price">
+     <div class="price" id="price">
         <div class="container">
             <div class="main-heading">
                 <h2>Pricing</h2>
@@ -421,7 +481,7 @@
     </div>
      <!-- end subscribe -->
      <!-- start contact -->
-      <div class="contact">
+      <div class="contact" id="contact">
         <div class="container">
             <div class="main-heading">
                 <h2>Contact Us</h2>
@@ -466,5 +526,6 @@
         </div>
         </div>
       <!-- end footer -->
+       <script src="./javascript/main.js"></script>
 </body>
 </html>

@@ -21,7 +21,9 @@ ul{
 a{
     text-decoration: none;
 }
-
+.d-none {
+    display: none !important;
+}
 .container{
     margin: 0 auto;
     padding: 0 15px;
@@ -185,6 +187,7 @@ a{
     transform: translateY(-50%);
     top: 50%;
     right: 0;
+    cursor: pointer;
 }
 /* end head */
 /* start landing */
@@ -203,17 +206,25 @@ a{
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
 }
-.landing .text{
+.landing .text {
+    opacity: 0;
+    transform: translateY(-50%) translateX(100%);
+    transition: 0.5s ease-in-out;
     position: absolute;
     top: 50%;
     left: 0;
-    transform: translateY(-50%);
-    width:50%;
+    width: 50%;
     padding: 50px;
     background-color: var(--transparent-color);
     color: white;
     display: flex;
     justify-content: flex-end;
+    pointer-events: none;
+}
+.landing .text.active {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0%);
+    pointer-events: auto;
 }
 .landing .text .content{
     max-width: 500px;
@@ -381,6 +392,7 @@ line-height: 2;
 }
 .protoflio ul li{
     padding: 10px;
+    cursor: pointer;
 }
 .protoflio ul .active{
     background-color: var(--main-color);
@@ -598,10 +610,10 @@ line-height: 2;
     position: relative;
 }
 /* start col 1 */
-.skills .container .content .col .body .customer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.skills .customer {
+    display: none;
+    gap: 20px;
+    align-items: center;
 }
 .skills .container .content .col .body .customer img{
     border-radius: 50%;
@@ -629,29 +641,28 @@ line-height: 2;
     right: 0;
     background-color: #77777729;
 }
-.skills .container .content .col .body .bullets{
-    position: absolute;
-    left: 50%;
-    bottom: -35px;
-    transform: translateX(-50%);
+.skills .bullets {
     display: flex;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    margin-top: 15px;
 }
 @media(max-width:768px){
-    .skills .container .content .col .body .bullets{
+    .skills .bullets{
         bottom: -50px;
     }
 }
-.skills .container .content .col .body .bullets li{
-    margin: 0 5px;
+.skills .bullets li {
     width: 15px;
     height: 15px;
+    background-color: #999;
     border-radius: 50%;
     cursor: pointer;
-    border: 1px solid rgba(0, 0, 0, 50%);
+    transition: background-color 0.3s;
 }
-.skills .container .content .col .body .bullets .active{
-    background: var(--main-color);
-    border-color: rgb(0, 0, 0/50%);
+.skills .bullets li.active {
+    background-color: #0171f2;
 }
 /* end col 1 */
 /* start col 2 */

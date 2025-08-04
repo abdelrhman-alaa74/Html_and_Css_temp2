@@ -1,263 +1,202 @@
 // start Header
 // anchor Tags
+// Header navigation
 let liHeaders = document.querySelectorAll(".header .nav ul li a");
-let iHome = document.querySelector(".header .nav ul li .home")
-liHeaders.forEach((liHead) => {
-    liHead.addEventListener("click", (e) => {
-        liHeaders.forEach((a) => {
-            a.classList.remove("active")
-        })
-        e.target.classList.add("active");
-    })
-})
+let iHome = document.querySelector(".header .nav ul li .home");
 
-// search icon
-let iconHeader = document.querySelector(".header .form i")
-let formHeader = document.querySelector(".header .form")
-let ulHeader = document.querySelector(".header .nav ul")
-let input = document.createElement("input")
+liHeaders.forEach((liHead) => {
+  liHead.addEventListener("click", (e) => {
+    liHeaders.forEach((a) => a.classList.remove("active"));
+    e.target.classList.add("active");
+  });
+});
+
+// Search icon
+let iconHeader = document.querySelector(".header .form i");
+let formHeader = document.querySelector(".header .form");
+let ulHeader = document.querySelector(".header .nav ul");
+let input = document.createElement("input");
+
 iconHeader.addEventListener("click", () => {
-    if (ulHeader.style.display !== "none") {
-        input.type = "text"
-        input.name = "search"
-        input.placeholder = "What do you think"
-        input.classList.add("input-click")
-        formHeader.appendChild(input)
-        formHeader.style.width = "45%"
-        ulHeader.style.display = "none"
-        iconHeader.style.color = "#1f2021"
-        iconHeader.style.transformTranslateY = "-25%"
-        iconHeader.style.right = "5px"
-    } else {
-        input.remove();
-        formHeader.style = "40px"
-        ulHeader.style.display = "flex"
-        iconHeader.style.color = "white"
-        iconHeader.style.transformTranslateY = "-50%"
-        iconHeader.style.right = "0px"
-    }
-    iconHeader.addEventListener("mouseout", () => {
-        setTimeout(() => {
-            input.remove();
-            formHeader.style = "40px"
-            ulHeader.style.display = "flex"
-            iconHeader.style.color = "white"
-            iconHeader.style.transformTranslateY = "-50%"
-            iconHeader.style.right = "0px"
-        },3000)
-    })
-})
+  if (ulHeader.style.display !== "none") {
+    input.type = "text";
+    input.name = "search";
+    input.placeholder = "What do you think";
+    input.classList.add("input-click");
+    formHeader.appendChild(input);
+    formHeader.style.width = "45%";
+    ulHeader.style.display = "none";
+    iconHeader.style.color = "#1f2021";
+  } else {
+    input.remove();
+    formHeader.style.width = "40px";
+    ulHeader.style.display = "flex";
+    iconHeader.style.color = "white";
+  }
 
+  iconHeader.addEventListener("mouseout", () => {
+    setTimeout(() => {
+      input.remove();
+      formHeader.style.width = "40px";
+      ulHeader.style.display = "flex";
+      iconHeader.style.color = "white";
+    }, 3000);
+  });
+});
 
+// Reset active link on scroll top
 window.onscroll = () => {
-    if (scrollY <= 5) {
-        
-liHeaders.forEach((liHead) => {
-        liHeaders.forEach((a) => {
-            a.classList.remove("active")
-        })
-        iHome.classList.add("active");
-})
+  if (scrollY <= 5) {
+    liHeaders.forEach((a) => a.classList.remove("active"));
+    iHome.classList.add("active");
+  }
+};
+
+let landingTexts = document.querySelectorAll(".landing .text");
+let leftArrow = document.querySelector(".landing .fa-angle-left");
+let rightArrow = document.querySelector(".landing .fa-angle-right");
+let bullets = document.querySelectorAll(".landing .bullets li");
+
+let currentIndex = parseInt(localStorage.getItem("landingIndex")) || 0;
+
+function updateSlides(index) {
+  landingTexts.forEach((text, i) => {
+    if (i === index) {
+text.style.transform = "translateY(-50%) translateX(0%)";
+      text.style.opacity = "1";
+      text.style.pointerEvents = "auto";
+    } else if (i < index) {
+      text.style.transform = "translateX(-100%) translateY(-50%)";
+      text.style.opacity = "0";
+      text.style.pointerEvents = "none";
+    } else {
+      text.style.transform = "translateX(100%) translateY(-50%)";
+      text.style.opacity = "0";
+      text.style.pointerEvents = "none";
     }
-}
-// end Header
-// start landing Text
+  });
 
-let landingTexts = document.querySelectorAll(".landing .text")
-let leftAngle = document.querySelector(".landing .fa-angle-left")
-let rightAngle = document.querySelector(".landing .fa-angle-right")
-let bullets = document.querySelectorAll(".bullet")
-let leftCircle = document.querySelector(".bullets .one")
-let midCircle = document.querySelector(".bullets .two")
-let rightCircle = document.querySelector(".bullets .three")
+  bullets.forEach((bullet, i) => {
+    bullet.classList.toggle("active", i === index);
+  });
 
-reverseLocalStorge()
-
-leftAngle.addEventListener("click", () => {
-    landingTexts.forEach((landingText) => {
-        if (landingText.style.transform == `translateX(${0}%)`) {
-            landingText.style.transform = `translateX(${-200}%)`;
-            bullets.forEach((bullet) => {
-                    bullet.classList.remove("active")
-                })
-            rightCircle.classList.add("active")
-            setLocalStorge()
-        } else if (landingText.style.transform == `translateX(${-100}%)`) {
-            landingText.style.transform = `translateX(${0}%)`;
-            bullets.forEach((bullet) => {
-                    bullet.classList.remove("active")
-                })
-            leftCircle.classList.add("active")
-            setLocalStorge()
-        } else {
-            landingText.style.transform = `translateX(${-100}%)`;
-            bullets.forEach((bullet) => {
-                    bullet.classList.remove("active")
-                })
-            midCircle.classList.add("active")
-            setLocalStorge()
-        }
-    })
-})
-
-rightAngle.addEventListener("click", () => {
-    landingTexts.forEach((landingText) => {
-        if (landingText.style.transform == `translateX(${0}%)`) {
-            landingText.style.transform = `translateX(${-100}%)`;
-            bullets.forEach((bullet) => {
-                    bullet.classList.remove("active")
-                })
-            midCircle.classList.add("active")
-            setLocalStorge()
-        } else if (landingText.style.transform == `translateX(${-100}%)`) {
-            landingText.style.transform = `translateX(${-200}%)`;
-            bullets.forEach((bullet) => {
-                    bullet.classList.remove("active")
-                })
-            rightCircle.classList.add("active")
-            setLocalStorge()
-        } else {
-            landingText.style.transform = `translateX(${0}%)`;
-            bullets.forEach((bullet) => {
-                    bullet.classList.remove("active")
-                })
-            leftCircle.classList.add("active")
-            setLocalStorge()
-        }
-    })
-})
-
-bullets.forEach((bullet) => {
-    bullet.addEventListener("click", (e) => {
-        bullets.forEach((a) => {
-            a.classList.remove("active")
-        })
-        e.target.classList.add("active")
-        landingTexts.forEach((landingText) => {
-            if (e.target == leftCircle) {
-                landingText.style.transform = `translateX(${0}%)`
-                setLocalStorge()
-            } else if (e.target == rightCircle) {
-                landingText.style.transform = `translateX(${-200}%)`
-                setLocalStorge()
-            } else {
-                landingText.style.transform = `translateX(${-100}%)`
-                setLocalStorge()
-            }
-        })
-    })
-})
-
-// set local Storge
-
-let setLocalStorge = ()=>{
-    let arr = []
-    landingTexts.forEach((landingText) => {
-        if (landingText.style.transform == `translateX(${0}%)`) {
-            let record = {
-                text: "translateX(${0}%)",
-            }
-            arr.push(JSON.stringify(record))
-            localStorage.setItem("active",arr[0])
-        } else if (landingText.style.transform == `translateX(${-100}%)`) {
-            let record = {
-                text: "translateX(${-100}%)",
-            }
-            arr.push(JSON.stringify(record))
-            localStorage.setItem("active",arr[0])
-        } else {
-            let record = {
-                text: "translateX(${-200}%)",
-            }
-            arr.push(JSON.stringify(record))
-            localStorage.setItem("active",arr[0])
-        }
-    })
+  localStorage.setItem("landingIndex", index);
 }
 
+// Right arrow
+rightArrow.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % landingTexts.length;
+  updateSlides(currentIndex);
+});
 
-// reverse localStrorge
-function reverseLocalStorge() {
-    if (localStorage.getItem("active")) {
-        let items = localStorage.getItem("active")
-        let arr = JSON.parse(items)
-        landingTexts.forEach((landingText) => {
-            if (arr.text == "translateX(${0}%)") {
-                landingText.style.transform = `translateX(${0}%)`;
-                bullets.forEach((bullet) => {
-                        bullet.classList.remove("active")
-                    })
-                leftCircle.classList.add("active")
-            } else if (arr.text == "translateX(${-100}%)") {
-                landingText.style.transform = `translateX(${-100}%)`;
-                bullets.forEach((bullet) => {
-                        bullet.classList.remove("active")
-                    })
-                midCircle.classList.add("active")
-            } else if(arr.text == "translateX(${-200}%)") {
-                landingText.style.transform = `translateX(${-200}%)`;
-                bullets.forEach((bullet) => {
-                        bullet.classList.remove("active")
-                    })
-                rightCircle.classList.add("active")
-            }
-        })
+// Left arrow
+leftArrow.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + landingTexts.length) % landingTexts.length;
+  updateSlides(currentIndex);
+});
+
+// Bullets
+bullets.forEach((bullet, i) => {
+  bullet.addEventListener("click", () => {
+    currentIndex = i;
+    updateSlides(currentIndex);
+  });
+});
+
+// Initial load
+updateSlides(currentIndex);
+
+
+
+let icons = document.querySelectorAll(".protoflio ul li");
+let moreBtn = document.getElementById("btn");
+let allBoxes = document.querySelectorAll(".protoflio .images-box .box");
+let addBoxes = document.querySelectorAll(".protoflio .images-box .add");
+
+let showingAll = false;
+
+icons.forEach((icon) => {
+  icon.addEventListener("click", (e) => {
+    icons.forEach((i) => i.classList.remove("active"));
+    e.target.classList.add("active");
+
+    let selectedClass = "";
+
+    if (e.target.classList.contains("i-all")) {
+      selectedClass = "all";
+    } else if (e.target.classList.contains("i-app")) {
+      selectedClass = "app";
+    } else if (e.target.classList.contains("i-photo")) {
+      selectedClass = "photo";
+    } else if (e.target.classList.contains("i-web")) {
+      selectedClass = "web";
+    } else if (e.target.classList.contains("i-print")) {
+      selectedClass = "print";
     }
-}
-// end landing text
 
-
-// protoflieo btn 
-let btn = document.querySelector(".protoflio .btn")
-let addboxes = document.querySelectorAll(".protoflio .images-box .add")
-btn.addEventListener("click", () => {
-    addboxes.forEach((box) => {
-        if (box.classList.contains("d-none")) {
-            box.classList.remove("d-none")
-            btn.innerText = "Less"
+    allBoxes.forEach((box) => {
+      if (selectedClass === "all") {
+        box.classList.remove("d-none");
+        if (box.classList.contains("add")) box.classList.add("d-none");
+        moreBtn.classList.remove("d-none");
+        moreBtn.textContent = "More";
+        showingAll = false;
+      } else {
+        if (box.classList.contains(selectedClass)) {
+          box.classList.remove("d-none");
         } else {
-            box.classList.add("d-none")
-            btn.innerText = "More"
+          box.classList.add("d-none");
         }
-    })
-})
+        moreBtn.classList.add("d-none");
+      }
+    });
+  });
+});
+
+moreBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (!showingAll) {
+    addBoxes.forEach((box) => box.classList.remove("d-none"));
+    moreBtn.textContent = "Less";
+    showingAll = true;
+  } else {
+    addBoxes.forEach((box) => box.classList.add("d-none"));
+    moreBtn.textContent = "More";
+    showingAll = false;
+  }
+});
 
 
 
-// 
+let customers = document.querySelectorAll(".skills .customer");
+let Tesbullets = document.querySelectorAll(".skills .bullets li");
 
-let icons = document.querySelectorAll(".protoflio ul li")
-let appBoxes = document.querySelectorAll(".protoflio .images-box .app")
-let photoBoxes = document.querySelectorAll(".protoflio .images-box .photo")
-let webBoxes = document.querySelectorAll(".protoflio .images-box .web")
-let printBoxes = document.querySelectorAll(".protoflio .images-box .print")
-let AllBoxes = document.querySelectorAll(".protoflio .images-box .box")
+let commentIndex = 0;
 
+// function to update comments view
+function updateComments(index) {
+  customers.forEach((customer, i) => {
+    customer.style.display = i === index ? "flex" : "none";
+  });
 
-handleBoxes("i-all" , AllBoxes)
-handleBoxes("i-app" , appBoxes)
-handleBoxes("i-photo" , photoBoxes)
-handleBoxes("i-web" , webBoxes)
-handleBoxes("i-print", printBoxes)
+  Tesbullets.forEach((bullet, i) => {
+    bullet.classList.toggle("active", i === index);
+  });
 
-
-
-function handleBoxes(className , boxes) {
-    icons.forEach((icon) => {
-        icon.addEventListener("click", (e) => {
-            icons.forEach((a) => a.classList.remove("active"))
-            e.target.classList.add("active")
-            if (e.target.classList.contains(className)) {
-                AllBoxes.forEach((box) => {
-                    box.classList.add("d-none")
-                    boxes.forEach((e) => e.classList.remove("d-none"))
-                    btn.classList.add("d-none")
-                })
-            } else if (e.target.classList.contains("i-all")) {
-                AllBoxes.forEach((e) => e.classList.remove("d-none"))
-                addboxes.forEach((e)=> e.classList.add("d-none"))
-                btn.classList.remove("d-none")
-            }
-        })
-    })
+  commentIndex = index;
 }
+
+// trigger on bullets click
+Tesbullets.forEach((bullet, index) => {
+  bullet.addEventListener("click", () => {
+    updateComments(index);
+  });
+});
+
+// show initial comment
+updateComments(commentIndex);
+
+setInterval(() => {
+  let nextIndex = (commentIndex + 1) % customers.length;
+  updateComments(nextIndex);
+}, 3000); 
